@@ -1,0 +1,48 @@
+{
+  "name": "intranet-qa-automation",
+  "version": "1.0.0",
+  "description": "UI Automation Framework for Intranet Application",
+  "main": "index.js",
+  "scripts": {
+    "allure:clean": "rimraf allure-results allure-report",
+    "test": "npm run allure:clean && playwright test",
+    "test:ui": "npm run allure:clean && playwright test",
+    "test:headed": "npm run allure:clean && playwright test --headed",
+    "test:debug": "npm run allure:clean && playwright test --debug",
+    "test:smoke": "npm run allure:clean && playwright test --grep @smoke",
+    "test:sanity": "npm run allure:clean && playwright test --grep @sanity",
+    "test:regression": "npm run allure:clean && playwright test --grep @regression",
+    "test:e2e": "npm run allure:clean && playwright test --grep @e2e",
+    "report": "playwright show-report",
+    "allure:serve": "allure serve allure-results",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "lint": "eslint . --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "generate:toast-data": "npx tsx scripts/generate-toast-data.ts"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "qa",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^20.11.24",
+    "@types/xlsx": "^0.0.35",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.12.2",
+    "axios": "^1.20.0",
+    "dotenv": "^16.4.5",
+    "mailosaur": "^11.1.1",
+    "rimraf": "^6.1.3",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}
